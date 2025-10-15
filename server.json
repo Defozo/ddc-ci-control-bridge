@@ -3,7 +3,7 @@
   "name": "io.github.defozo/ddc-ci-control-bridge",
   "title": "DDC/CI Control Bridge",
   "description": "Control monitor brightness, contrast, power and input via DDC/CI with MCP and MQTT support.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/defozo/ddc-ci-control-bridge",
   "repository": {
     "url": "https://github.com/defozo/ddc-ci-control-bridge",
@@ -25,7 +25,7 @@
     {
       "registryType": "npm",
       "identifier": "ddc-ci-control-bridge",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "transport": {
         "type": "stdio"
       }
