@@ -10,6 +10,7 @@ jobs:
     permissions:
       id-token: write  # Required for OIDC authentication
       contents: write  # Required for creating releases
+      packages: write  # Required for GitHub Packages
 
     steps:
       - name: Checkout code
@@ -51,6 +52,21 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Setup Node.js for GitHub Packages
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@defozo"
+
+      - name: Publish to GitHub Packages
+        run: |
+          # Update package.json to use scoped name for GitHub Packages
+          node -e "const pkg = require('./package.json'); pkg.name = '@defozo/ddc-ci-control-bridge'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));"
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install MCP Publisher
         run: |
