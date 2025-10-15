@@ -19,6 +19,15 @@ This directory contains GitHub Actions workflows for the DDC/CI Control Bridge p
   3. Create GitHub release with all artifacts
 - **Artifacts**: Retained for 90 days
 
+### 📦 Publish to MCP Registry (`publish-mcp.yml`)
+- **Triggers**: Git tags starting with `v` (e.g., `v1.0.0`)
+- **Purpose**: Publish to the Model Context Protocol Registry
+- **Steps**:
+  1. Build and test
+  2. Publish to npm
+  3. Publish to MCP Registry using GitHub OIDC
+- **Authentication**: GitHub OIDC (no secrets needed!)
+
 ### 🔍 Continuous Integration (`ci.yml`)
 - **Triggers**: Push to `main`/`develop`, Pull Requests to `main`
 - **Purpose**: Lint, type-check, and test the build
@@ -43,7 +52,7 @@ Automatically updates dependencies:
 
 ## Setup Requirements
 
-### For Releases
+### For Releases and MCP Publishing
 
 1. **NPM Token** (for publishing to npm):
    - Go to npmjs.com → Account Settings → Access Tokens
@@ -52,13 +61,7 @@ Automatically updates dependencies:
 
 2. **GitHub Token**:
    - Automatically provided by GitHub Actions
-   - No setup required
-
-### For Security
-
-1. **Audit Configuration**:
-   - Uses `audit-ci.json` for vulnerability thresholds
-   - Currently set to fail on any severity level
+   - No setup required for MCP Registry (uses OIDC)
 
 ## Usage
 
@@ -74,6 +77,7 @@ Automatically updates dependencies:
 4. GitHub Actions will automatically:
    - Build executables for all platforms
    - Publish to npm (if configured)
+   - Publish to MCP Registry
    - Create a GitHub release with artifacts
 
 ### Manual Build
@@ -91,6 +95,10 @@ Push to `main` branch to trigger build workflow and get artifacts.
 - Published as `ddc-ci-control-bridge`
 - Available via `npm install -g ddc-ci-control-bridge`
 
+### MCP Registry
+- Server name: `io.github.Defozo/ddc-ci-control-bridge`
+- Discoverable by all MCP clients
+
 ## Troubleshooting
 
 ### Build Failures
@@ -102,6 +110,11 @@ Push to `main` branch to trigger build workflow and get artifacts.
 - Verify NPM_TOKEN is set in repository secrets
 - Check that version in package.json matches git tag
 - Ensure you have publish permissions on npm
+
+### MCP Publishing Failures
+- Verify `mcpName` field in package.json matches server.json
+- Ensure npm publish succeeded first
+- Check GitHub Actions has `id-token: write` permission
 
 ### Security Audit Failures
 - Review vulnerability details in workflow logs
@@ -134,3 +147,10 @@ Edit `audit-ci.json`:
   "critical": true
 }
 ```
+
+## More Information
+
+- **Main README**: [../README.md](../README.md)
+- **MCP Publishing Guide**: [../docs/MCP_REGISTRY_PUBLISHING.md](../docs/MCP_REGISTRY_PUBLISHING.md)
+- **Development Guide**: [../docs/DEVELOPMENT.md](../docs/DEVELOPMENT.md)
+
