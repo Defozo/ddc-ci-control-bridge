@@ -2,6 +2,7 @@
   "name": "ddc-ci-control-bridge",
   "version": "1.0.0",
   "description": "Multi-protocol bridge for DDC/CI monitor control with MCP and MQTT support",
+  "mcpName": "io.github.defoz/ddc-ci-control-bridge",
   "main": "dist/server.js",
   "bin": {
     "ddc-ci-bridge": "./bin/ddc-mcp-server.js"

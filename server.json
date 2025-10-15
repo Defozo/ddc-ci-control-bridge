@@ -1,0 +1,34 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.defoz/ddc-ci-control-bridge",
+  "title": "DDC/CI Control Bridge",
+  "description": "Control monitor brightness, contrast, power and input via DDC/CI with MCP and MQTT support.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/defoz/ddc-ci-control-bridge",
+  "repository": {
+    "url": "https://github.com/defoz/ddc-ci-control-bridge",
+    "source": "github"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ddc-ci",
+    "monitor-control",
+    "display",
+    "brightness",
+    "mqtt",
+    "home-assistant",
+    "automation",
+    "vcp",
+    "hardware-control"
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "ddc-ci-control-bridge",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
