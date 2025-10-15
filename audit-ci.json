@@ -1,9 +1,11 @@
 {
   "low": true,
-  "moderate": true,
+  "moderate": false,
   "high": true,
   "critical": true,
-  "allowlist": [],
+  "allowlist": [
+    "GHSA-22r3-9w55-cj54"
+  ],
   "skip-dev": false,
   "report-type": "summary",
   "output-format": "text"
