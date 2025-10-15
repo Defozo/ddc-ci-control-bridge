@@ -27,6 +27,9 @@ jobs:
       - name: Run TypeScript compilation
         run: npm run build
 
+      - name: Build executables
+        run: npm run build:executables
+
       - name: Extract version from tag
         id: get_version
         run: |
@@ -58,4 +61,15 @@ jobs:
 
       - name: Publish to MCP Registry
         run: ./mcp-publisher publish
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/bin/*
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
