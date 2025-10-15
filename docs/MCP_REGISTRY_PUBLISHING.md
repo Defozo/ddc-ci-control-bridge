@@ -36,7 +36,7 @@ Created `.github/workflows/publish-mcp.yml` that:
 
 1. **Push your code to GitHub**:
    ```bash
-   git remote add origin https://github.com/defozo/ddc-ci-control-bridge.git
+   git remote add origin https://github.com/Defozo/ddc-ci-control-bridge.git
    git push -u origin main
    ```
 
@@ -81,7 +81,7 @@ git push origin v1.0.0
 After successful publishing, verify your server appears in the registry:
 
 ```bash
-curl "https://registry.modelcontextprotocol.io/v0/servers?search=io.github.defozo/ddc-ci-control-bridge"
+curl "https://registry.modelcontextprotocol.io/v0/servers?search=io.github.Defozo/ddc-ci-control-bridge"
 ```
 
 ## Version Numbering
@@ -100,7 +100,7 @@ The workflow uses **GitHub OIDC** authentication:
 
 ## Namespace
 
-Your server uses the `io.github.defozo/*` namespace:
+Your server uses the `io.github.Defozo/*` namespace:
 - Automatically authenticated via GitHub
 - Tied to your GitHub account
 - No DNS setup required
