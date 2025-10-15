@@ -2,7 +2,7 @@
 
 ![DDC/CI Control Bridge](docs/banner.png)
 
-[![NPM Version](https://img.shields.io/npm/v/ddc-ci-control-bridge?color=red)](https://www.npmjs.com/package/ddc-ci-control-bridge) [![MIT licensed](https://img.shields.io/npm/l/ddc-ci-control-bridge)](./LICENSE) [![GitHub Release](https://img.shields.io/github/v/release/defoz/ddc-ci-control-bridge)](https://github.com/defoz/ddc-ci-control-bridge/releases)
+[![NPM Version](https://img.shields.io/npm/v/ddc-ci-control-bridge?color=red)](https://www.npmjs.com/package/ddc-ci-control-bridge) [![MIT licensed](https://img.shields.io/npm/l/ddc-ci-control-bridge)](./LICENSE) [![GitHub Release](https://img.shields.io/github/v/release/Defozo/ddc-ci-control-bridge)](https://github.com/Defozo/ddc-ci-control-bridge/releases)
 
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=ddc-ci-bridge&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsImRkYy1jaS1jb250cm9sLWJyaWRnZSJdfQ%3D%3D) [<img alt="Install in VS Code" src="https://img.shields.io/badge/Install%20in%20VS%20Code-0098FF?style=for-the-badge&logo=visualstudiocode&logoColor=white">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22ddc-ci-bridge%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22ddc-ci-control-bridge%22%5D%7D)
 
@@ -34,7 +34,56 @@ npx ddc-ci-control-bridge
 ```
 
 **Option 3: Standalone Executable**
-Download the binary for your platform from releases and run it.
+
+Download the binary for your platform from [GitHub Releases](https://github.com/Defozo/ddc-ci-control-bridge/releases):
+
+- **Windows**: `ddc-ci-bridge-windows.exe`
+- **Linux**: `ddc-ci-bridge-linux`
+- **macOS**: `ddc-ci-bridge-macos`
+
+Then run it:
+
+**Windows:**
+```cmd
+# Run directly
+.\ddc-ci-bridge-windows.exe
+
+# Or with environment variables
+set DDC_API_KEY=your-secret-key
+set MQTT_ENABLED=true
+set MQTT_HOST=192.168.1.100
+.\ddc-ci-bridge-windows.exe
+```
+
+**Linux/macOS:**
+```bash
+# Make executable
+chmod +x ddc-ci-bridge-linux  # or ddc-ci-bridge-macos
+
+# Run directly
+./ddc-ci-bridge-linux
+
+# Or with environment variables
+DDC_API_KEY=your-secret-key MQTT_ENABLED=true MQTT_HOST=192.168.1.100 ./ddc-ci-bridge-linux
+```
+
+**Using with MCP Clients:**
+
+Configure your MCP client to use the executable path:
+
+```json
+{
+  "mcpServers": {
+    "ddc-ci-bridge": {
+      "command": "/path/to/ddc-ci-bridge-linux",
+      "args": [],
+      "env": {
+        "MQTT_ENABLED": "false"
+      }
+    }
+  }
+}
+```
 
 ### MCP Client Setup
 
