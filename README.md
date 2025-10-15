@@ -41,14 +41,17 @@ Download the binary for your platform from [GitHub Releases](https://github.com/
 - **Linux**: `ddc-ci-bridge-linux`
 - **macOS**: `ddc-ci-bridge-macos`
 
-Then run it:
+**⚠️ Note:** The executable requires `DDC_API_KEY` environment variable to be set, or it will exit immediately.
 
 **Windows:**
 ```cmd
-# Run directly
+# Set API key (required)
+set DDC_API_KEY=your-secret-key
+
+# Run the executable
 ddc-ci-bridge-win.exe
 
-# Or with environment variables
+# Or set multiple environment variables
 set DDC_API_KEY=your-secret-key
 set MQTT_ENABLED=true
 set MQTT_HOST=192.168.1.100
@@ -57,13 +60,13 @@ ddc-ci-bridge-win.exe
 
 **Linux/macOS:**
 ```bash
-# Make executable
+# Make executable (first time only)
 chmod +x ddc-ci-bridge-linux  # or ddc-ci-bridge-macos
 
-# Run directly
-./ddc-ci-bridge-linux
+# Run with API key (required)
+DDC_API_KEY=your-secret-key ./ddc-ci-bridge-linux
 
-# Or with environment variables
+# Or with multiple environment variables
 DDC_API_KEY=your-secret-key MQTT_ENABLED=true MQTT_HOST=192.168.1.100 ./ddc-ci-bridge-linux
 ```
 
