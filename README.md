@@ -37,7 +37,7 @@ npx ddc-ci-control-bridge
 
 Download the binary for your platform from [GitHub Releases](https://github.com/Defozo/ddc-ci-control-bridge/releases):
 
-- **Windows**: `ddc-ci-bridge-windows.exe`
+- **Windows**: `ddc-ci-bridge-win.exe`
 - **Linux**: `ddc-ci-bridge-linux`
 - **macOS**: `ddc-ci-bridge-macos`
 
@@ -46,13 +46,13 @@ Then run it:
 **Windows:**
 ```cmd
 # Run directly
-.\ddc-ci-bridge-windows.exe
+ddc-ci-bridge-win.exe
 
 # Or with environment variables
 set DDC_API_KEY=your-secret-key
 set MQTT_ENABLED=true
 set MQTT_HOST=192.168.1.100
-.\ddc-ci-bridge-windows.exe
+ddc-ci-bridge-win.exe
 ```
 
 **Linux/macOS:**
@@ -75,7 +75,7 @@ Configure your MCP client to use the executable path:
 {
   "mcpServers": {
     "ddc-ci-bridge": {
-      "command": "/path/to/ddc-ci-bridge-linux",
+      "command": "C:\\path\\to\\ddc-ci-bridge-win.exe",
       "args": [],
       "env": {
         "MQTT_ENABLED": "false"
