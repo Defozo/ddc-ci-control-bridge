@@ -33,16 +33,7 @@ ddc-ci-bridge
 npx ddc-ci-control-bridge
 ```
 
-**Option 3: GitHub Packages**
-```bash
-# Configure npm to use GitHub Packages for @defozo scope
-npm config set @defozo:registry https://npm.pkg.github.com
-
-# Install from GitHub Packages
-npm install -g @defozo/ddc-ci-control-bridge
-```
-
-**Option 4: Standalone Executable**
+**Option 3: Standalone Executable**
 
 Download the binary for your platform from [GitHub Releases](https://github.com/Defozo/ddc-ci-control-bridge/releases):
 
