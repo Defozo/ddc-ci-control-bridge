@@ -34,7 +34,56 @@ npx ddc-ci-control-bridge
 ```
 
 **Option 3: Standalone Executable**
-Download the binary for your platform from releases and run it.
+
+Download the binary for your platform from [GitHub Releases](https://github.com/Defozo/ddc-ci-control-bridge/releases):
+
+- **Windows**: `ddc-ci-bridge-windows.exe`
+- **Linux**: `ddc-ci-bridge-linux`
+- **macOS**: `ddc-ci-bridge-macos`
+
+Then run it:
+
+**Windows:**
+```cmd
+# Run directly
+.\ddc-ci-bridge-windows.exe
+
+# Or with environment variables
+set DDC_API_KEY=your-secret-key
+set MQTT_ENABLED=true
+set MQTT_HOST=192.168.1.100
+.\ddc-ci-bridge-windows.exe
+```
+
+**Linux/macOS:**
+```bash
+# Make executable
+chmod +x ddc-ci-bridge-linux  # or ddc-ci-bridge-macos
+
+# Run directly
+./ddc-ci-bridge-linux
+
+# Or with environment variables
+DDC_API_KEY=your-secret-key MQTT_ENABLED=true MQTT_HOST=192.168.1.100 ./ddc-ci-bridge-linux
+```
+
+**Using with MCP Clients:**
+
+Configure your MCP client to use the executable path:
+
+```json
+{
+  "mcpServers": {
+    "ddc-ci-bridge": {
+      "command": "/path/to/ddc-ci-bridge-linux",
+      "args": [],
+      "env": {
+        "MQTT_ENABLED": "false"
+      }
+    }
+  }
+}
+```
 
 ### MCP Client Setup
 
