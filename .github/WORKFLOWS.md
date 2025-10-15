@@ -96,7 +96,7 @@ Push to `main` branch to trigger build workflow and get artifacts.
 - Available via `npm install -g ddc-ci-control-bridge`
 
 ### MCP Registry
-- Server name: `io.github.defoz/ddc-ci-control-bridge`
+- Server name: `io.github.defozo/ddc-ci-control-bridge`
 - Discoverable by all MCP clients
 
 ## Troubleshooting
